@@ -15,11 +15,9 @@ import KIF
 class ValidatorViewController: QuickSpec {
      //SpecBegin(ValidatorViewController)
     override func spec() {
-        
+			
         let tester = KIFUITestActor()
-        
-        @IBAction func sdf(sender: AnyObject) {
-        }
+			
         let submitButton =  tester.waitForViewWithAccessibilityLabel(Constants.SUBMITBUTTON) as! UIButton
         
         describe("submit button:") {
@@ -30,11 +28,7 @@ class ValidatorViewController: QuickSpec {
                 tester.waitForTappableViewWithAccessibilityLabel(Constants.EMAILTEXTFIELD)
                 tester.tapViewWithAccessibilityLabel(Constants.EMAILTEXTFIELD)
                 tester.enterText("susan@flatironschool.com", intoViewWithAccessibilityLabel: Constants.EMAILTEXTFIELD)
-                
-                @IBOutlet weak var emailEnded: UITextField!
-                @IBAction func emailEditingEnded(sender: UITextField) {
-                }
-							
+   
                 expect(submitButton.enabled).to(beFalse())
                 
                 tester.tapViewWithAccessibilityLabel(Constants.EMAILCONFIRMTEXTFIELD)
@@ -42,8 +36,6 @@ class ValidatorViewController: QuickSpec {
                 
                 expect(submitButton.enabled).to(beFalse())
                 
-                @IBAction func emailEditingDidEnd(sender: AnyObject) {
-                }
                 tester.tapViewWithAccessibilityLabel(Constants.PHONETEXTFIELD)
                 tester.enterText("6466440584", intoViewWithAccessibilityLabel: Constants.PHONETEXTFIELD)
                 
